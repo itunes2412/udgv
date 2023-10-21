@@ -8,17 +8,15 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 // Get method
-app.get('/',(req, res) => {
+app.get('/', (req, res) => {
     res.render('todo.ejs');
-    });
+});
 
 // Post method
-app.post('/',(req, res) => {
+app.post('/', (req, res) => {
     console.log(req.body);
-    });
+});
 
-app.listen(3000, () => console.log("Server Up and running"));
+const PORT = process.env.PORT || 3000; // Utiliza el puerto proporcionado por el entorno de alojamiento o el puerto 3000 si se ejecuta localmente
 
-// Iniciar proceso con: npm start
-
-// Fuente: https://medium.com/@diogo.fg.pinheiro/simple-to-do-list-app-with-node-js-and-mongodb-chapter-1-c645c7a27583
+app.listen(PORT, () => console.log(`Server Up and running on port ${PORT}`));
